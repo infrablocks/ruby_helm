@@ -11,7 +11,7 @@ describe RubyHelm::Commands::Reset do
     RubyHelm.reset!
   end
 
-  it 'calls the helm init command' do
+  it 'calls the helm reset command' do
     command = RubyHelm::Commands::Reset.new(binary: 'helm')
 
     expect(Open4).to(
