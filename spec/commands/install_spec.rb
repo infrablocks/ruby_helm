@@ -36,4 +36,17 @@ describe RubyHelm::Commands::Install do
         }
     )
   end
+
+  it 'specifies the name of the release' do
+    command = RubyHelm::Commands::Install.new(binary: 'helm')
+
+    expect(Open4).to(
+        receive(:spawn)
+            .with('helm install --name some-name /some/directory', any_args))
+
+    command.execute(
+        directory: '/some/directory',
+        name: 'some-name'
+    )
+  end
 end

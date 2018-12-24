@@ -6,6 +6,7 @@ module RubyHelm
     class Install < Base
       def configure_command(builder, opts)
         directory = opts[:directory]
+        name = opts[:name]
         values = opts[:values] || {}
 
         paired_values = values.map do |key, value|
@@ -17,6 +18,7 @@ module RubyHelm
               '--set',
               paired_values.join(","),
               separator: ' ') unless values.empty?
+          sub = sub.with_option('--name', name, separator: ' ') if name
           sub
         end
             .with_argument(directory)
