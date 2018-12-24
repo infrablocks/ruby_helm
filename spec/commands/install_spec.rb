@@ -16,9 +16,9 @@ describe RubyHelm::Commands::Install do
 
     expect(Open4).to(
         receive(:spawn)
-            .with('helm install /some/directory', any_args))
+            .with('helm install /some/chart', any_args))
 
-    command.execute(directory: '/some/directory')
+    command.execute(chart: '/some/chart')
   end
 
   it 'calls --set for all the given values' do
@@ -26,10 +26,10 @@ describe RubyHelm::Commands::Install do
 
     expect(Open4).to(
         receive(:spawn)
-            .with('helm install --set firstKey=firstValue,secondKey=secondValue /some/directory', any_args))
+            .with('helm install --set firstKey=firstValue,secondKey=secondValue /some/chart', any_args))
 
     command.execute(
-        directory: '/some/directory',
+        chart: '/some/chart',
         values: {
             firstKey: 'firstValue',
             secondKey: 'secondValue'
@@ -42,11 +42,11 @@ describe RubyHelm::Commands::Install do
 
     expect(Open4).to(
         receive(:spawn)
-            .with('helm install --name some-name /some/directory', any_args))
+            .with('helm install --name some-release /some/chart', any_args))
 
     command.execute(
-        directory: '/some/directory',
-        name: 'some-name'
+        chart: '/some/chart',
+        name: 'some-release'
     )
   end
 end
