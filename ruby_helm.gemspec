@@ -9,16 +9,14 @@ Gem::Specification.new do |spec|
   spec.authors       = ["jimmythompson"]
   spec.email         = ["jimmy@jimmythompson.co.uk"]
 
-  spec.summary       = ""
-  spec.description   = ""
+  spec.summary       = "A thin Ruby wrapper around Helm"
+  spec.description   = "A thin Ruby wrapper around Helm"
   spec.homepage      = "https://github.com/infrablocks/ruby_helm"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-
     spec.metadata["homepage_uri"] = spec.homepage
     spec.metadata["source_code_uri"] = "https://github.com/infrablocks/ruby_helm"
     spec.metadata["changelog_uri"] = "https://github.com/infrablocks/ruby_helm"
@@ -41,4 +39,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.17"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency 'gem-release', "~> 2.0"
 end
