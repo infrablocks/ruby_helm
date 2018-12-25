@@ -49,4 +49,17 @@ describe RubyHelm::Commands::Template do
         name: 'some-release'
     )
   end
+
+  it 'specifies the output directory' do
+    command = RubyHelm::Commands::Template.new(binary: 'helm')
+
+    expect(Open4).to(
+        receive(:spawn)
+            .with('helm template --output-dir /some/output /some/chart', any_args))
+
+    command.execute(
+        chart: '/some/chart',
+        output_directory: '/some/output'
+    )
+  end
 end
