@@ -9,3 +9,10 @@
 
 # rspec failure tracking
 .rspec_status
+
+.rakeTasks
+
+*.iml
+*.ipr
+*.iws
+/.idea
