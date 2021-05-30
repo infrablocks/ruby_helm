@@ -5,8 +5,8 @@ require "ruby_helm/version"
 Gem::Specification.new do |spec|
   spec.name          = "ruby_helm"
   spec.version       = RubyHelm::VERSION
-  spec.authors       = ["jimmythompson"]
-  spec.email         = ["jimmy@jimmythompson.co.uk"]
+  spec.authors = ['InfraBlocks Maintainers']
+  spec.email = ['maintainers@infrablocks.io']
 
   spec.summary       = "A thin Ruby wrapper around Helm"
   spec.description   = "A thin Ruby wrapper around Helm"
