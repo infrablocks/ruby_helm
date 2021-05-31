@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ruby_helm/version'
 require 'ruby_helm/commands'
 

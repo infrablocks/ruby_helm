@@ -1,18 +1,32 @@
-/.bundle/
-/.yardoc
-/_yardoc/
+## Standard stuff:
+*.gem
+*.rbc
+/.config
 /coverage/
-/doc/
+/InstalledFiles
 /pkg/
-/spec/reports/
-/tmp/
-
-# rspec failure tracking
 .rspec_status
-
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
 .rakeTasks
 
-*.iml
+## Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+/coverage/
+
+## Environment normalization:
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
+
+## IDE:
+.idea
 *.ipr
 *.iws
 /.idea

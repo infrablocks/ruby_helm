@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'lino'
 
 module RubyHelm
@@ -26,28 +28,26 @@ module RubyHelm
 
         do_before(opts)
         configure_command(builder, opts)
-            .build
-            .execute(
-                stdin: stdin,
-                stdout: stdout,
-                stderr: stderr)
+          .build
+          .execute(
+            stdin: stdin,
+            stdout: stdout,
+            stderr: stderr
+          )
         do_after(opts)
       end
 
       def instantiate_builder
         Lino::CommandLineBuilder
-            .for_command(binary)
-            .with_option_separator('=')
+          .for_command(binary)
+          .with_option_separator('=')
       end
 
-      def do_before(opts)
-      end
+      def do_before(opts); end
 
-      def configure_command(builder, opts)
-      end
+      def configure_command(builder, opts); end
 
-      def do_after(opts)
-      end
+      def do_after(opts); end
     end
   end
 end
