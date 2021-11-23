@@ -28,5 +28,6 @@
 ## IDE:
 .idea
 *.ipr
+*.iml
 *.iws
 /.idea
