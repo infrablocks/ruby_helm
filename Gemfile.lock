@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby_helm (0.2.0.pre.3)
+    ruby_helm (0.2.0.pre.4)
       lino (~> 3.0)
 
 GEM
@@ -188,4 +188,4 @@ DEPENDENCIES
   simplecov (~> 0.21)
 
 BUNDLED WITH
-   2.3.6
+   2.3.7
