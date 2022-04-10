@@ -9,7 +9,7 @@ files = %w[
   bin
   lib
   CODE_OF_CONDUCT.md
-  ruby_terraform.gemspec
+  ruby_helm.gemspec
   Gemfile
   LICENSE.txt
   Rakefile
