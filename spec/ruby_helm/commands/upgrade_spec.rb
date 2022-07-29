@@ -46,7 +46,7 @@ describe RubyHelm::Commands::Upgrade do
     expect(Open4).to(
       have_received(:spawn)
         .with(
-          'helm upgrade '\
+          'helm upgrade ' \
           '--set firstKey=firstValue,secondKey=secondValue ' \
           'some-release /some/chart',
           any_args
