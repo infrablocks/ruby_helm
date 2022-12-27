@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby_helm (0.2.0.pre.10)
+    ruby_helm (0.3.0)
       lino (~> 3.0)
 
 GEM
