@@ -12,7 +12,7 @@ module RubyHelm
       end
 
       def stdin
-        ''
+        nil
       end
 
       def stdout
@@ -30,9 +30,9 @@ module RubyHelm
         configure_command(builder, opts)
           .build
           .execute(
-            stdin: stdin,
-            stdout: stdout,
-            stderr: stderr
+            stdin:,
+            stdout:,
+            stderr:
           )
         do_after(opts)
       end

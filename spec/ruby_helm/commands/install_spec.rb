@@ -3,33 +3,33 @@
 require 'spec_helper'
 
 describe RubyHelm::Commands::Install do
+  let(:executor) { Lino::Executors::Mock.new }
+
   before do
     RubyHelm.configure do |config|
       config.binary = 'path/to/binary'
     end
+    Lino.configure do |config|
+      config.executor = executor
+    end
   end
 
   after do
+    Lino.reset!
     RubyHelm.reset!
   end
 
   it 'calls the helm install command' do
     command = described_class.new(binary: 'helm')
 
-    allow(Open4).to(receive(:spawn))
-
     command.execute(chart: '/some/chart')
 
-    expect(Open4).to(
-      have_received(:spawn)
-        .with('helm install /some/chart', any_args)
-    )
+    expect(executor.executions.first.command_line.string)
+      .to(eq('helm install /some/chart'))
   end
 
   it 'calls --set for all the given values' do
     command = described_class.new(binary: 'helm')
-
-    allow(Open4).to(receive(:spawn))
 
     command.execute(
       chart: '/some/chart',
@@ -39,29 +39,20 @@ describe RubyHelm::Commands::Install do
       }
     )
 
-    expect(Open4).to(
-      have_received(:spawn)
-        .with(
-          'helm install ' \
-          '--set firstKey=firstValue,secondKey=secondValue /some/chart',
-          any_args
-        )
-    )
+    expect(executor.executions.first.command_line.string)
+      .to(eq('helm install ' \
+             '--set firstKey=firstValue,secondKey=secondValue /some/chart'))
   end
 
   it 'specifies the name of the release' do
     command = described_class.new(binary: 'helm')
-
-    allow(Open4).to(receive(:spawn))
 
     command.execute(
       chart: '/some/chart',
       name: 'some-release'
     )
 
-    expect(Open4).to(
-      have_received(:spawn)
-          .with('helm install --name some-release /some/chart', any_args)
-    )
+    expect(executor.executions.first.command_line.string)
+      .to(eq('helm install --name some-release /some/chart'))
   end
 end
