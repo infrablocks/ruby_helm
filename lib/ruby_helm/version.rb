@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module RubyHelm
-  VERSION = '0.4.0.pre.6'
+  VERSION = '0.5.0'
 end
